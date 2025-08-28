@@ -1,0 +1,53 @@
+/* TextAnimation.css */
+
+/* Container */
+.scroller {
+  max-width: 955px;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+  white-space: nowrap;
+}
+
+/* Optional list reset (you can still style with Tailwind) */
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Inner track */
+.scroller__inner {
+  display: inline-flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  animation: scroll-left 8s linear infinite;
+}
+
+/* Enable/adjust animation speed when data-animated is set */
+[data-animated="true"] .scroller__inner {
+  animation: scroll-left 15s linear infinite;
+}
+
+/* Keyframes */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover (desktop) */
+.scroller__inner:hover {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroller__inner {
+    animation: none !important;
+  }
+}
