@@ -7,14 +7,13 @@ import HowItWorks from "../components/grids/HowItWorksGrid";
 import TextAnimation from "../components/TextAnimation";
 import FAQSection from "../components/FAQSection";
 import MobileButton from "../components/buttons/MobileButton";
-import GridHowItWorksmobile from "../components/grids/GridHowItWorksmobile";
+import FeaturesMobileGrid from "../components/grids/FeaturesMobileGrid";
 import Navbar from "../components/common/Navbar";
 
 export default function Home() {
   return (
-    
     <div className="relative">
-       <Navbar />
+      <Navbar />
       {/* ============ HERO ============ */}
       <section className="relative overflow-visible">
         {/* Watermarks (positioned exactly like the Next.js page) */}
@@ -78,7 +77,9 @@ export default function Home() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            {"Sri Lanka's first all-in-one stress relief app. Swish Strokes helps you manage your \n mood, unwind with music, and express yourself through art-automatically guiding \n you to a calmer, happier you."}
+            {
+              "Sri Lanka's first all-in-one stress relief app. Swish Strokes helps you manage your \n mood, unwind with music, and express yourself through art-automatically guiding \n you to a calmer, happier you."
+            }
           </motion.p>
 
           <FeatureList />
@@ -144,14 +145,55 @@ export default function Home() {
       {/* ============ FEATURES GRIDS ============ */}
       <section className="max-w-[1200px] mx-auto px-4">
         <FeaturesGrid />
-        <GridHowItWorksmobile />
+        <FeaturesMobileGrid />
       </section>
 
       {/* ============ TEXT BLOCK + IMAGE ============ */}
       <section className="max-w-[1200px] mx-auto px-4">
         <div>
+          {/* Mobile-only heading (below md) — word-by-word animation */}
           <motion.h1
-            className="text-5xl md:text-6xl font-bold text-center md:text-left md:pl-[40px] mt-5 md:mt-20 font-atkinson"
+            className="md:hidden text-4xl font-bold text-center mt-6 leading-tight font-atkinson"
+            style={{ fontFamily: "Atkinson Hyperlegible, Arial, sans-serif" }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.6 }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.06 } },
+            }}
+          >
+            {/* helper variants for each word */}
+            {[
+              { line: ["Stop", "stressing", "over", "self-care"] }, // note the non-breaking hyphen U+2011
+              { line: ["Let", "Swish", "Strokes"], highlight: [1, 2] },
+              { line: ["do", "the", "heavy", "lifting"] },
+            ].map((row, rIdx) => (
+              <div key={rIdx} className="block">
+                {row.line.map((word, wIdx) => (
+                  <motion.span
+                    key={`${rIdx}-${wIdx}`}
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      show: { opacity: 1, y: 0 },
+                    }}
+                    className={`inline-block whitespace-nowrap ${
+                      row.highlight?.includes(wIdx) ? "text-[#9737ff]" : ""
+                    }`}
+                    style={{
+                      marginRight:
+                        wIdx === row.line.length - 1 ? 0 : "0.25em",
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+            ))}
+          </motion.h1>
+
+          <motion.h1
+            className="hidden md:block text-5xl md:text-6xl font-bold text-center md:text-left md:pl-[40px] mt-5 md:mt-20 font-atkinson"
             style={{ fontFamily: "Atkinson Hyperlegible, Arial, sans-serif" }}
           >
             {"Stop stressing over self-care".split("").map((char, i) => (
@@ -316,176 +358,222 @@ export default function Home() {
       <section id="how" className="max-w-[1200px] mx-auto px-4">
         <HowItWorks />
       </section>
-{/* ============ PRIVACY SECTION ============ */}
-<section className="w-full mt-[72px]">
-  <div className="max-w-[1200px] mx-auto px-4 md:px-6">
-    {/* Panel */}
-    <div className="bg-[#110028] w-full">
-      {/* Heading */}
-      <motion.h1
-        className="text-5xl md:text-6xl leading-[1.05] font-atkinson font-bold text-center md:text-left md:ps-10 md:pt-20 pt-10"
-        style={{ fontFamily: "Atkinson Hyperlegible, Arial, sans-serif" }}
-      >
-        {("Let's Talk").split("").map((char, i) => (
-          <motion.span
-            key={`wellness-a-${i}`}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ delay: i * 0.06 }}
-            className="text-[#9737ff]"
-            style={{ display: "inline-block" }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-        <br className="md:hidden" />
-        {(" Wellness. ").split("").map((char, i) => (
-          <motion.span
-            key={`wellness-b-${i}`}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ delay: (15 + i) * 0.06 }}
-            className="text-[#9737ff]"
-            style={{ display: "inline-block" }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-        <br />
-        {"Your Emotions Stay Yours.".split("").map((char, i) => (
-          <motion.span
-            key={`emotions-${i}`}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ delay: (25 + i) * 0.06 }}
-            style={{ display: "inline-block" }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-        <br />
-        {"Always.".split("").map((char, i) => (
-          <motion.span
-            key={`always-${i}`}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ delay: (55 + i) * 0.06 }}
-            style={{ display: "inline-block" }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-      </motion.h1>
 
-      {/* Purple divider (desktop); thin hr on mobile */}
-      <div className="hidden md:block border-t border-[#9737ff] my-8" />
-      <hr className="md:hidden border-[#9737ff]/50 max-w-[800px] mx-auto mt-[60px]" />
+      {/* ============ PRIVACY SECTION ============ */}
+      <section className="w-full mt-[72px]">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+          {/* Panel */}
+          <div className="bg-[#110028] w-full">
+            <div className="hidden md:block">
+              {/* Heading */}
+              <motion.h1
+                className="text-5xl md:text-6xl leading-[1.05] font-atkinson font-bold text-center md:text-left md:ps-10 md:pt-20 pt-10"
+                style={{
+                  fontFamily: "Atkinson Hyperlegible, Arial, sans-serif",
+                }}
+              >
+                {("Let's Talk").split("").map((char, i) => (
+                  <motion.span
+                    key={`wellness-a-${i}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ delay: i * 0.06 }}
+                    className="text-[#9737ff]"
+                    style={{ display: "inline-block" }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+                <br className="md:hidden" />
+                {(" Wellness. ").split("").map((char, i) => (
+                  <motion.span
+                    key={`wellness-b-${i}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ delay: (15 + i) * 0.06 }}
+                    className="text-[#9737ff]"
+                    style={{ display: "inline-block" }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+                <br />
+                {"Your Emotions Stay Yours.".split("").map((char, i) => (
+                  <motion.span
+                    key={`emotions-${i}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ delay: (25 + i) * 0.06 }}
+                    style={{ display: "inline-block" }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+                <br />
+                {"Always.".split("").map((char, i) => (
+                  <motion.span
+                    key={`always-${i}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ delay: (55 + i) * 0.06 }}
+                    style={{ display: "inline-block" }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.h1>
+            </div>
 
-      {/* Two-column content */}
-      <div className="flex flex-col md:flex-row w-full items-start  gap-[210px] max-w-[1150px] mx-auto p-6 text-white">
-        {/* Left: Buttons */}
-        <div className="order-2 md:order-1 flex flex-col gap-4 w-full md:w-auto text-base ml-0 md:ml-2 -mt-[65px] md:mt-0">
-          <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
-            Calming & Reassuring
-          </button>
-          <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
-            Privacy Meets Peace
-          </button>
-          <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
-            Peace of Mind, Built In
-          </button>
-          <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
-            Calm in Every Click
-          </button>
-          <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
-            Gentle and Grounded
-          </button>
+            {/* Mobile-only version */}
+            <motion.h1
+              className="md:hidden text-4xl font-bold text-center pt-10 leading-tight font-atkinson"
+              style={{ fontFamily: "Atkinson Hyperlegible, Arial, sans-serif" }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.6 }}
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.06 } },
+              }}
+            >
+              {[
+                { words: ["Let\u2019s", "Talk"], color: "text-[#9737ff]" },
+                { words: ["Wellness."], color: "text-[#9737ff]" },
+                { words: ["Your", "Emotions"] },
+                { words: ["Stay", "Yours."] },
+                { words: ["Always."] },
+              ].map((row, rIdx) => (
+                <div key={rIdx} className="block">
+                  {row.words.map((word, wIdx) => (
+                    <motion.span
+                      key={`${rIdx}-${wIdx}`}
+                      variants={{
+                        hidden: { opacity: 0, y: 10 },
+                        show: { opacity: 1, y: 0 },
+                      }}
+                      className={`inline-block whitespace-nowrap ${
+                        row.color ?? ""
+                      }`}
+                      style={{
+                        marginRight:
+                          wIdx === row.words.length - 1 ? 0 : "0.25em",
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </div>
+              ))}
+            </motion.h1>
+
+            {/* Purple divider (desktop); thin hr on mobile */}
+            <div className="hidden md:block border-t border-[#9737ff] my-8" />
+            <hr className="md:hidden border-[#9737ff]/50 max-w-[800px] mx-auto mt-[60px]" />
+
+            {/* Two-column content */}
+            <div className="flex flex-col md:flex-row w-full items-start  gap-[210px] max-w-[1150px] mx-auto p-6 text-white">
+              {/* Left: Buttons */}
+              <div className="order-2 md:order-1 flex flex-col gap-4 w/full md:w-auto text-base ml-0 md:ml-2 -mt-[65px] md:mt-0">
+                <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
+                  Calming & Reassuring
+                </button>
+                <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
+                  Privacy Meets Peace
+                </button>
+                <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
+                  Peace of Mind, Built In
+                </button>
+                <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
+                  Calm in Every Click
+                </button>
+                <button className="bg-transparent border border-white/10 hover:bg-[#9737ff]/10 rounded-full px-6 py-3 text-white font-medium transition-colors duration-200 cursor-pointer">
+                  Gentle and Grounded
+                </button>
+              </div>
+
+              {/* Right: Text */}
+              <div className="order-1 md:order-2 w-full md:w-1/2">
+                <motion.h2
+                  className="text-[19px] font-bold mb-6 text-center md:text-left"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  Your Peace of Mind Is Non-Negotiable.
+                </motion.h2>
+
+                <motion.p
+                  className="text-white/80 mb-4 leading-relaxed text-sm md:text-base text-center md:text-left"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                >
+                  We built Swish Strokes because, like you, we're tired of apps that overcomplicate
+                  wellness—or worse, collect and misuse your personal reflections and emotional data.
+                </motion.p>
+
+                <motion.p
+                  className="text-white/80 mb-4 leading-relaxed text-center md:text-left text-sm md:text-base"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                >
+                  We believe mental wellness should come with complete emotional safety.
+                </motion.p>
+
+                <motion.p
+                  className="text-white/80 mb-4 leading-relaxed text-center md:text-left text-sm md:text-base"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+                >
+                  That's why everything Swish Strokes does happens right on your phone.
+                </motion.p>
+
+                <motion.p
+                  className="text-white/80 leading-relaxed text-center md:text-left text-sm md:text-base"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+                >
+                  Your mood entries, journal notes, music history, and artwork are never uploaded, tracked, or shared.
+                </motion.p>
+              </div>
+            </div>
+
+            {/* Mockup image */}
+            <motion.div
+              className="flex justify-center sm:w-[320px] md:ml-1 -ml-3 md:w-full mt-10"
+              initial={{ opacity: 0, y: 28, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <motion.div
+                initial={{ rotate: -2 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 0.45, delay: 0.12, ease: "easeOut" }}
+                className="w-full"
+              >
+                <img
+                  src="/images/mockuuups-iphone-mockup-on-multicolodred-background 1.png"
+                  alt="mockup"
+                  className="imagemockup2 w-full h-auto mx-auto rounded-2xl"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
-
-        {/* Right: Text */}
-        <div className="order-1 md:order-2 w-full md:w-1/2">
-          <motion.h2
-            className="text-[19px] font-bold mb-6 text-center md:text-left"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            Your Peace of Mind Is Non-Negotiable.
-          </motion.h2>
-
-          <motion.p
-            className="text-white/80 mb-4 leading-relaxed text-sm md:text-base text-center md:text-left"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          >
-            We built Swish Strokes because, like you, we're tired of apps that overcomplicate
-            wellness—or worse, collect and misuse your personal reflections and emotional data.
-          </motion.p>
-
-          <motion.p
-            className="text-white/80 mb-4 leading-relaxed text-center md:text-left text-sm md:text-base"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-          >
-            We believe mental wellness should come with complete emotional safety.
-          </motion.p>
-
-          <motion.p
-            className="text-white/80 mb-4 leading-relaxed text-center md:text-left text-sm md:text-base"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
-          >
-            That's why everything Swish Strokes does happens right on your phone.
-          </motion.p>
-
-          <motion.p
-            className="text-white/80 leading-relaxed text-center md:text-left text-sm md:text-base"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
-          >
-            Your mood entries, journal notes, music history, and artwork are never uploaded, tracked, or shared.
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Mockup image */}
-      <motion.div
-        className="flex justify-center sm:w-[320px] md:ml-1 -ml-3 md:w-full mt-10"
-        initial={{ opacity: 0, y: 28, scale: 0.9 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <motion.div
-          initial={{ rotate: -2 }}
-          animate={{ rotate: 0 }}
-          transition={{ duration: 0.45, delay: 0.12, ease: "easeOut" }}
-          className="w-full"
-        >
-          <img
-            src="/images/mockuuups-iphone-mockup-on-multicolodred-background 1.png"
-            alt="mockup"
-            className="imagemockup2 w-full h-auto mx-auto rounded-2xl"
-          />
-        </motion.div>
-      </motion.div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* ============ FAQ ============ */}
       <section className="max-w-[1200px] mx-auto px-4">

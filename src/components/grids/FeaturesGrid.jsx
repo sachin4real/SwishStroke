@@ -8,7 +8,7 @@ export default function FeaturesGrid() {
       {/* Desktop Layout (xl and above) */}
       <div className="hidden xl:grid grid-cols-3 gap-4">
         {/* Top Row */}
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[520px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[520px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-base mb-2">Mood Selection</h3>
           <p className="text-white/60 mb-4 text-sm">
             Select your mood right when you open Swish Strokes.
@@ -22,7 +22,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[260px] mx-44">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[260px] mx-44 transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-base mb-2">Personalized Music Recommendations</h3>
           <p className="text-white/60 mb-4 text-sm mt-1">
             Enjoy curated playlists based on how you're feeling.
@@ -34,7 +34,7 @@ export default function FeaturesGrid() {
           />
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[260px] ml-[88px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[260px] ml-[88px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-base mb-2">Interactive Art & Coloring Canvas</h3>
           <p className="text-white/60 mb-4 text-sm">
             Express yourself creatively with a variety of artistic tools.
@@ -47,7 +47,7 @@ export default function FeaturesGrid() {
         </div>
 
         {/* Bottom Row */}
-        <div className="md:row-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[520px]">
+        <div className="md:row-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[392px] w-[520px] transition-transform duration-300 hover:scale-[1.02]">
           <img
             src="/images/bento-img → b9Ul08A6CFtpK0OS9NJj30NTk.svg.png"
             alt="Mood trends"
@@ -59,7 +59,7 @@ export default function FeaturesGrid() {
           </p>
         </div>
 
-        <div className="md:col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex h-[185px] w-[528px] ml-44">
+        <div className="md:col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex h-[185px] w-[528px] ml-44 transition-transform duration-300 hover:scale-[1.02]">
           <img
             src="/images/bento-img.png"
             alt="Trophy"
@@ -75,7 +75,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[185px] w-[260px] ml-44">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col h-[185px] w-[260px] ml-44 transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-base mb-2">Built for Privacy</h3>
           <p className="text-white/60 mb-4 text-sm">
             All your personal data stays private and secure.
@@ -88,7 +88,7 @@ export default function FeaturesGrid() {
         </div>
 
         <div
-          className="rounded-xl p-6 flex flex-col h-[185px] bg-cover bg-center bg-no-repeat w-[260px] ml-[88px]"
+          className="rounded-xl p-6 flex flex-col h-[185px] bg-cover bg-center bg-no-repeat w-[260px] ml-[88px] transition-transform duration-300 hover:scale-[1.02]"
           style={{
             backgroundImage: `url(${
               isHovered
@@ -103,7 +103,7 @@ export default function FeaturesGrid() {
 
       {/* Tablet Layout (lg to xl) */}
       <div className="hidden lg:grid xl:hidden grid-cols-2 gap-4">
-        <div className="col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px]">
+        <div className="col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-lg font-semibold mb-2">Mood Selection</h3>
           <p className="text-white/60 mb-4 text-sm">
             Select your mood right when you open Swish Strokes.
@@ -117,7 +117,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-lg font-semibold mb-2">
             Personalized Music Recommendations
           </h3>
@@ -133,7 +133,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-lg font-semibold mb-2">
             Interactive Art & Coloring Canvas
           </h3>
@@ -149,7 +149,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px]">
+        <div className="col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col min-h-[300px] transition-transform duration-300 hover:scale-[1.02]">
           <div className="flex-1 flex items-start justify-center mb-4">
             <img
               src="/images/bento-img → b9Ul08A6CFtpK0OS9NJj30NTk.svg.png"
@@ -163,7 +163,7 @@ export default function FeaturesGrid() {
           </p>
         </div>
 
-        <div className="col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-row items-center gap-4 min-h-[150px]">
+        <div className="col-span-2 bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-row items-center gap-4 min-h-[150px] transition-transform duration-300 hover:scale-[1.02]">
           <img
             src="/images/bento-img.png"
             alt="Trophy"
@@ -179,7 +179,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col justify-between min-h-[150px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-6 flex flex-col justify-between min-h-[150px] transition-transform duration-300 hover:scale-[1.02]">
           <div>
             <h3 className="text-lg font-semibold mb-2">Built for Privacy</h3>
             <p className="text-white/60 text-sm">
@@ -196,7 +196,7 @@ export default function FeaturesGrid() {
         </div>
 
         <div
-          className="rounded-xl p-6 flex flex-col min-h-[150px] bg-cover bg-center bg-no-repeat"
+          className="rounded-xl p-6 flex flex-col min-h-[150px] bg-cover bg-center bg-no-repeat transition-transform duration-300 hover:scale-[1.02]"
           style={{
             backgroundImage: `url(${
               isHovered
@@ -211,7 +211,7 @@ export default function FeaturesGrid() {
 
       {/* Mobile Layout (below lg) */}
       <div className="grid lg:hidden grid-cols-1 gap-4">
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-lg font-semibold mb-2">Mood Selection</h3>
           <p className="text-white/60 mb-4 text-sm">
             Select your mood right when you open Swish Strokes.
@@ -225,7 +225,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-lg font-semibold mb-2">
             Personalized Music Recommendations
           </h3>
@@ -241,7 +241,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px] transition-transform duration-300 hover:scale-[1.02]">
           <h3 className="text-lg font-semibold mb-2">
             Interactive Art & Coloring Canvas
           </h3>
@@ -257,7 +257,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col min-h-[250px] transition-transform duration-300 hover:scale-[1.02]">
           <div className="flex-1 flex items-start justify-center mb-4">
             <img
               src="/images/bento-img → b9Ul08A6CFtpK0OS9NJj30NTk.svg.png"
@@ -271,7 +271,7 @@ export default function FeaturesGrid() {
           </p>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 min-h-[150px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 min-h-[150px] transition-transform duration-300 hover:scale-[1.02]">
           <img
             src="/images/bento-img.png"
             alt="Trophy"
@@ -287,7 +287,7 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col justify-between min-h-[150px]">
+        <div className="bg-white/5 hover:bg-stone-300/20 rounded-xl p-4 flex flex-col justify-between min-h-[150px] transition-transform duration-300 hover:scale-[1.02]">
           <div className="text-center">
             <h3 className="text-lg font-semibold mb-2">Built for Privacy</h3>
             <p className="text-white/60 text-sm">
@@ -304,7 +304,7 @@ export default function FeaturesGrid() {
         </div>
 
         <div
-          className="rounded-xl p-4 flex flex-col min-h-[150px] bg-cover bg-center bg-no-repeat"
+          className="rounded-xl p-4 flex flex-col min-h-[150px] bg-cover bg-center bg-no-repeat transition-transform duration-300 hover:scale-[1.02]"
           style={{
             backgroundImage: `url(${
               isHovered

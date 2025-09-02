@@ -1,4 +1,4 @@
-export default function GridHowItWorksmobile() {
+export default function FeaturesMobileGrid() {
   return (
     <div
       id="features"
