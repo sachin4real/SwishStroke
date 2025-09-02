@@ -8,10 +8,13 @@ import TextAnimation from "../components/TextAnimation";
 import FAQSection from "../components/FAQSection";
 import MobileButton from "../components/buttons/MobileButton";
 import GridHowItWorksmobile from "../components/grids/GridHowItWorksmobile";
+import Navbar from "../components/common/Navbar";
 
 export default function Home() {
   return (
+    
     <div className="relative">
+       <Navbar />
       {/* ============ HERO ============ */}
       <section className="relative overflow-visible">
         {/* Watermarks (positioned exactly like the Next.js page) */}

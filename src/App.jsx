@@ -8,7 +8,7 @@ import TermsOfUse from "./pages/TermsOfUse.jsx";
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
