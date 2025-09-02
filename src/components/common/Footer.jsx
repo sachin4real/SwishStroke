@@ -31,8 +31,8 @@ export default function Footer() {
   ];
 
   const quickLinksLine2 = [
-    { label: "Privacy Policy", href: "/PrivacyPolicy" },
-    { label: "Terms of Use", href: "/TermsOfUse" },
+    { label: "Privacy Policy", href: "/Privacy" },
+    { label: "Terms of Use", href: "/Terms" },
   ];
 
   return (
