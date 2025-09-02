@@ -205,7 +205,7 @@ export default function HowItWorks() {
 
           {/* Right Side */}
           <motion.div
-            className="flex gap-4 justify-center mt-[120px]"
+            className="hidden md:flex gap-4 justify-center md:mt-[120px]"
             initial={{ opacity: 0, y: 24, scale: 0.8 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
